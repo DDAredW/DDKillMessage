@@ -1,0 +1,4 @@
+title: '&9&l⚔'  # Текст титула
+subtitle: '&6⚔ &f&lВы убили &f&l{victim} &6⚔'  # Текст субтитула
+displayTime: 5  # Время отображения сообщения в секундах
+killSound: ENTITY_PLAYER_LEVELUP  # Название звука
