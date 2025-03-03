@@ -85,12 +85,10 @@ public class DDKillMessage extends JavaPlugin implements Listener {
             String subtitle = getConfig().getString("subtitle")
                     .replace("{killer}", killer.getName())
                     .replace("{victim}", victimName);
-
-            // Пример использования форматирования и цветных кодов
+            
             title = applyColorCodes(title);
             subtitle = applyColorCodes(subtitle);
 
-            // Получение звука из конфигурации
             String soundName = getConfig().getString("killSound");
             Sound sound = Sound.valueOf(soundName.toUpperCase());
 
