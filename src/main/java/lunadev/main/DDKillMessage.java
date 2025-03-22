@@ -26,7 +26,6 @@ public class DDKillMessage extends JavaPlugin implements Listener {
     private void validateConfig() {
         FileConfiguration config = getConfig();
 
-        // Проверка звукового эффекта
         String soundName = config.getString("killSound");
         try {
             Sound.valueOf(soundName.toUpperCase());
@@ -36,7 +35,6 @@ public class DDKillMessage extends JavaPlugin implements Listener {
             saveConfig();
         }
 
-        // Проверка партиклов
         boolean particlesEnabled = config.getBoolean("particles.enabled");
         String particleType = config.getString("particles.type");
         int particleCount = config.getInt("particles.count");
@@ -92,28 +90,22 @@ public class DDKillMessage extends JavaPlugin implements Listener {
             String soundName = getConfig().getString("killSound");
             Sound sound = Sound.valueOf(soundName.toUpperCase());
 
-            // Звуковой эффект при появлении сообщения
             killer.playSound(killer.getLocation(), sound, 1.0f, 1.0f);
 
-            // Получение настроек партиклов из конфигурации
             boolean particlesEnabled = getConfig().getBoolean("particles.enabled");
             String particleType = getConfig().getString("particles.type");
             int particleCount = getConfig().getInt("particles.count");
 
-            // Отображение партиклов
             if (particlesEnabled) {
                 Particle particle = Particle.valueOf(particleType.toUpperCase());
                 killer.getWorld().spawnParticle(particle, killer.getLocation(), particleCount);
             }
 
-            // Отображение сообщений в титуле и субтитуле
             killer.sendTitle(title, subtitle, 10, 70, 20);
 
-            // Время отображения сообщения
-            long displayTime = getConfig().getLong("displayTime") * 20L; // Перевод секунд в тики
+            long displayTime = getConfig().getLong("displayTime") * 20L;
             Bukkit.getScheduler().runTaskLater(this, () -> {
-                // Очистка сообщения
-                killer.resetTitle(); // Сброс титула с экрана
+                killer.resetTitle();
             }, displayTime);
         }
     }
