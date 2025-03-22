@@ -7,3 +7,6 @@ particles:
   enabled: true  # Включение/выключение партиклов
   type: CRIT_MAGIC  # Тип партиклов (например, CRIT_MAGIC, FLAME и т.д.)
   count: 20  # Количество партиклов
+# Плейсхолдеры config.yml =>
+# "{killer}", Ник убийцы.
+# "{victim}", Ник жертвы.
